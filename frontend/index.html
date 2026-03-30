@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner - Your Journey Starts Here</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="static/css/custom.css">
+</head>
+<body>
+    <nav>
+        <h2>🌍 Travel Planner</h2>
+        <div id="nav-links">
+            <a href="/" data-testid="nav-home">Home</a>
+            <a href="/login.html" data-testid="nav-login">Login</a>
+            <a href="/register.html" data-testid="nav-register">Register</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>Plan Your Perfect Journey</h1>
+            <p>Create detailed itineraries, manage budgets, and explore destinations with our comprehensive travel planning tool.</p>
+            <div class="cta-buttons">
+                <a href="/register.html" class="btn-primary" data-testid="get-started-btn">Get Started</a>
+                <a href="/login.html" class="btn-secondary" data-testid="login-btn">Login</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card" data-testid="feature-itinerary">
+                    <h3>📅 Itinerary Builder</h3>
+                    <p>Create day-by-day plans with activities, locations, and time management.</p>
+                </div>
+                <div class="feature-card" data-testid="feature-budget">
+                    <h3>💰 Budget Tracking</h3>
+                    <p>Monitor expenses across categories and stay within your travel budget.</p>
+                </div>
+                <div class="feature-card" data-testid="feature-map">
+                    <h3>🗺️ Interactive Maps</h3>
+                    <p>Visualize your journey with integrated Leaflet maps and route planning.</p>
+                </div>
+                <div class="feature-card" data-testid="feature-export">
+                    <h3>📄 Export Options</h3>
+                    <p>Download your itineraries as PDF for offline access.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Travel Planner. Built with Flask & Vanilla JS.</p>
+    </footer>
+</body>
+</html>

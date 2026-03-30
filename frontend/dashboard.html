@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Travel Planner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="static/css/custom.css">
+</head>
+<body>
+    <nav>
+        <h2>🌍 Travel Planner</h2>
+        <div>
+            <span id="user-name" data-testid="user-name-display"></span>
+            <a href="/admin.html" id="admin-link" style="display:none;" data-testid="nav-admin">Admin</a>
+            <button id="logout-btn" data-testid="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <main class="dashboard-container" data-testid="dashboard-container">
+        <h1>My Dashboard</h1>
+        
+        <div class="stats-grid">
+            <div class="stat-card" data-testid="stat-total-trips">
+                <h3>Total Trips</h3>
+                <p class="stat-value" id="total-trips">0</p>
+            </div>
+            <div class="stat-card" data-testid="stat-total-budget">
+                <h3>Total Budget</h3>
+                <p class="stat-value" id="total-budget">$0</p>
+            </div>
+            <div class="stat-card" data-testid="stat-total-activities">
+                <h3>Total Activities</h3>
+                <p class="stat-value" id="total-activities">0</p>
+            </div>
+        </div>
+
+        <section class="trips-section">
+            <div class="section-header">
+                <h2>My Trips</h2>
+                <button id="create-trip-btn" data-testid="create-trip-btn">+ Create New Trip</button>
+            </div>
+            <div id="trips-list" data-testid="trips-list"></div>
+        </section>
+
+        <!-- Create Trip Modal -->
+        <div id="trip-modal" class="modal" data-testid="trip-modal">
+            <div class="modal-content">
+                <span class="close" data-testid="close-modal">&times;</span>
+                <h2>Create New Trip</h2>
+                <form id="create-trip-form" data-testid="create-trip-form">
+                    <div class="form-group">
+                        <label for="trip-title">Trip Title</label>
+                        <input type="text" id="trip-title" required data-testid="trip-title-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="trip-destination">Destination</label>
+                        <input type="text" id="trip-destination" required data-testid="trip-destination-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="trip-start-date">Start Date</label>
+                        <input type="date" id="trip-start-date" required data-testid="trip-start-date-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="trip-end-date">End Date</label>
+                        <input type="date" id="trip-end-date" required data-testid="trip-end-date-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="trip-budget">Total Budget ($)</label>
+                        <input type="number" id="trip-budget" step="0.01" min="0" data-testid="trip-budget-input">
+                    </div>
+                    <div id="modal-error" class="error" data-testid="modal-error-message"></div>
+                    <button type="submit" data-testid="create-trip-submit-btn">Create Trip</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="static/js/utils.js"></script>
+    <script src="static/js/dashboard.js"></script>
+</body>
+</html>

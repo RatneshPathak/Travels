@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Planner - Travel Planner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="static/css/custom.css">
+</head>
+<body>
+    <nav>
+        <h2>🌍 Travel Planner</h2>
+        <div>
+            <a href="/dashboard.html" data-testid="nav-dashboard">Dashboard</a>
+            <button id="logout-btn" data-testid="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <main class="planner-container" data-testid="planner-container">
+        <div class="planner-header">
+            <h1 id="trip-title" data-testid="trip-title">Loading...</h1>
+            <button id="back-btn" data-testid="back-to-dashboard-btn">← Back to Dashboard</button>
+        </div>
+
+        <div class="planner-layout">
+            <div class="planner-sidebar">
+                <section class="trip-info" data-testid="trip-info-section">
+                    <h2>Trip Details</h2>
+                    <p><strong>Destination:</strong> <span id="trip-destination" data-testid="trip-destination">-</span></p>
+                    <p><strong>Duration:</strong> <span id="trip-duration" data-testid="trip-duration">-</span></p>
+                    <p><strong>Budget:</strong> $<span id="trip-budget" data-testid="trip-budget">0</span></p>
+                </section>
+
+                <section class="activities-section">
+                    <div class="section-header">
+                        <h2>Activities</h2>
+                        <button id="add-activity-btn" data-testid="add-activity-btn">+ Add Activity</button>
+                    </div>
+                    <div id="activities-list" data-testid="activities-list"></div>
+                </section>
+
+                <section class="budget-section">
+                    <h2>Budget Breakdown</h2>
+                    <div id="budget-categories" data-testid="budget-categories"></div>
+                </section>
+            </div>
+
+            <div class="planner-main">
+                <div id="map" data-testid="trip-map"></div>
+            </div>
+        </div>
+
+        <!-- Add Activity Modal -->
+        <div id="activity-modal" class="modal" data-testid="activity-modal">
+            <div class="modal-content">
+                <span class="close" data-testid="close-activity-modal">&times;</span>
+                <h2>Add Activity</h2>
+                <form id="add-activity-form" data-testid="add-activity-form">
+                    <div class="form-group">
+                        <label for="activity-title">Title</label>
+                        <input type="text" id="activity-title" required data-testid="activity-title-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="activity-description">Description</label>
+                        <textarea id="activity-description" rows="3" data-testid="activity-description-input"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="activity-day">Day</label>
+                        <input type="number" id="activity-day" min="1" required data-testid="activity-day-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="activity-start-time">Start Time</label>
+                        <input type="time" id="activity-start-time" data-testid="activity-start-time-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="activity-end-time">End Time</label>
+                        <input type="time" id="activity-end-time" data-testid="activity-end-time-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="activity-cost">Cost ($)</label>
+                        <input type="number" id="activity-cost" step="0.01" min="0" data-testid="activity-cost-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="activity-location">Location</label>
+                        <input type="text" id="activity-location" data-testid="activity-location-input">
+                    </div>
+                    <div id="activity-modal-error" class="error" data-testid="activity-modal-error"></div>
+                    <button type="submit" data-testid="add-activity-submit-btn">Add Activity</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="static/js/utils.js"></script>
+    <script src="static/js/map.js"></script>
+    <script src="static/js/trip-planner.js"></script>
+</body>
+</html>
